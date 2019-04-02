@@ -6,6 +6,14 @@ This is useful if the first paragraph of your pages always contains a teaser tex
 
 The name of the CSS class can be customized.
 
+## Installation
+
+Install the package with pip:
+
+```
+pip install mkdocs-add-teaser
+```
+
 ## Configuration
 
 ```yaml
