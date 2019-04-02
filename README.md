@@ -1,6 +1,6 @@
 # mkdocs-add-teaser
 
-A MkDocs plugin to add a custom CSS class to the first paragraph after heading 1.
+A MkDocs plugin to add a CSS class to the first paragraph after the first heading 1 in all pages of your project. The name of the CSS class can be customized.
 
 ## Configuration
 
