@@ -43,7 +43,7 @@ Add the CSS class to your extra CSS file. Example:
 This is the HTML that Markdown will produce:
 
 ```html
-<h1>...</h1>
+<h1 id="...">...</h1>
 <p>First paragraph</p>
 ```
 
@@ -52,6 +52,6 @@ This is the HTML that Markdown will produce:
 This is the HTML after this plugin has run:
 
 ```html
-<h1>...</h1>
+<h1 id="...">...</h1>
 <p class="teaser">First paragraph</p>
 ```
