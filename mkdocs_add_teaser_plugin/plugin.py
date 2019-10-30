@@ -12,6 +12,7 @@ class AddTeaserPlugin(BasePlugin):
 
     config_scheme = (
         ('teaser_class', config_options.Type(mkdocs_utils.string_types, default='teaser')),
+        ('add_to_meta', config_options.Type(bool, default=False)),
     )
 
     def __init__(self):
@@ -19,5 +20,22 @@ class AddTeaserPlugin(BasePlugin):
         self.total_time = 0
 
     def on_post_page(self, output_content, page, config):
+        if self.config["add_to_meta"]:
+            # Add teaser text to meta description
+            teaser_text = re.search(r"<h1.*?<\/h1>\n<p>(.*?)<\/p>", output_content)
+            if teaser_text and teaser_text.group(1): 
+                teaser_text = teaser_text.group(1)
+                teaser_text = re.sub('<[^<]+?>', '', teaser_text)
+                # Look for existing meta description
+                meta_description = re.search(r"<meta name=\"description\" content=\"(.*?)\">", output_content)
+                if meta_description and meta_description.group(1):
+                    # Replace existing
+                    output_content = re.sub(meta_description.group(1), teaser_text, output_content, 1)
+                else:
+                    # Create new, append to head
+                    output_content = re.sub("<head>", "<head>\n<meta name=\"description\" content=\"" + teaser_text + "\">", output_content, 1)
+        
+        # Add teaser class
         output_content = re.sub(r"(<h1.*?<\/h1>\n)<p>", r"\1<p class='" + self.config["teaser_class"] + "'>", output_content, 1)
+                   
         return output_content
