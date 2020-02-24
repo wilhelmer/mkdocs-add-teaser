@@ -11,7 +11,7 @@ from mkdocs.plugins import BasePlugin
 class AddTeaserPlugin(BasePlugin):
 
     config_scheme = (
-        ('teaser_class', config_options.Type(mkdocs_utils.string_types, default='teaser')),
+        ('teaser_class', config_options.Type(str, default='teaser')),
         ('add_to_meta', config_options.Type(bool, default=False)),
     )
 
