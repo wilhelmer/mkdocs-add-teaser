@@ -27,6 +27,8 @@ class AddTeaserPlugin(BasePlugin):
                 teaser_text = teaser_text.group(1)
                 # Strip HTML tags
                 teaser_text = re.sub('<[^<]+?>', '', teaser_text)
+                # Convert double quotes
+                teaser_text = re.sub('"', '\'', teaser_text)
                 if teaser_text:
                     # Look for existing meta description
                     meta_description = re.search(r"<meta name=\"description\" content=\"(.*?)\">", output_content)
