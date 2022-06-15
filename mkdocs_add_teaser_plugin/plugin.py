@@ -31,13 +31,13 @@ class AddTeaserPlugin(BasePlugin):
                 teaser_text = re.sub('"', '\'', teaser_text)
                 if teaser_text:
                     # Look for existing meta description
-                    meta_description = re.search(r"<meta name=\"description\" content=\"(.*?)\">", output_content)
-                    if meta_description and meta_description.group(1):
+                    meta_description = re.search(r"<meta name=\"description\" content=\"(.*?)\">", output_content).group(1)
+                    if meta_description:
                         # Replace existing
-                        output_content = re.sub(meta_description.group(1), teaser_text, output_content, 1)
+                        output_content = output_content.replace(meta_description, teaser_text)
                     else:
                         # Create new, append to head
-                        output_content = re.sub("<head>", "<head>\n<meta name=\"description\" content=\"" + teaser_text + "\">", output_content, 1)
+                        output_content = output_content.replace('<head>', '<head><meta name="description" content="' + teaser_text + '">')
         
         # Add teaser class
         output_content = re.sub(r"(<h1.*?<\/h1>\n)<p>", r"\1<p class='" + self.config["teaser_class"] + "'>", output_content, 1)
