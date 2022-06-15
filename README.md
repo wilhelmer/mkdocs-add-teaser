@@ -1,10 +1,13 @@
 # mkdocs-add-teaser
 
-An MkDocs plugin to add a CSS class to the first paragraph after the first heading 1 in all pages of your project.
+An MkDocs plugin to customize the first paragraph of your pages, and to use it as the page's meta description.
 
-This is useful if the first paragraph of your pages always contains information that should stand out from the rest of the text, e.g., that should be printed in bold.
+This is useful if the first paragraph of your pages 
 
-The name of the CSS class can be customized.
+* contains information that should stand out from the rest of the text, e.g., should be printed in bold ("teaser" text)
+* should appear as the page description in search engines (for SEO).
+
+The plugin detects and uses the first paragraph after the first heading 1 in all pages of your project.
 
 ## Installation
 
