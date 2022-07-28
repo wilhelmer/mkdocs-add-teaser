@@ -7,8 +7,6 @@ This is useful if the first paragraph of your pages
 * contains information that should stand out from the rest of the text, e.g., should be printed in bold ("teaser" text)
 * should appear as the page description in search engines (for SEO).
 
-The plugin detects and uses the first paragraph after the first heading 1 in all pages of your project.
-
 ## Installation
 
 Install the package with pip:
@@ -23,8 +21,8 @@ Enable the plugin in your mkdocs.yml:
 plugins:
     - search
     - mkdocs-add-teaser:
-        teaser_class: "teaser"
-        add_to_meta: false
+        teaser_class: 'teaser'
+        add_to_meta: true
 ```
 
 > **Note:** If you have no `plugins` entry in your config file yet, you'll likely also want to add the `search` plugin. MkDocs enables it by default if there is no `plugins` entry set, but now you have to enable it explicitly.
@@ -71,7 +69,8 @@ Add the CSS class to your extra CSS file. See examples below.
 
 The following options are provided to configure the output:
 
-* `add_to_meta`: If set to `true`, the teaser text will be added to the page's meta description. Existing meta descriptions will be replaced. Defaults to `false`.
+* `add_to_meta`: If set to `true` and your page doesn't contain a meta description, the teaser text will be used as the meta description. Defaults to `false`.
+* `teaser_class`: The CSS to be applied to the first paragraph of your pages. Defaults to `teaser`.
 
 ## How it works
 
