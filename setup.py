@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
     name='mkdocs-add-teaser',
     version='0.9.0',
-    description='A MkDocs plugin to add a CSS class to the first paragraph after the first heading 1 in all pages of your project.',
+    description='An MkDocs plugin to customize the first paragraph of your pages, and to use it as the page\'s meta description.',
     long_description='',
     keywords='mkdocs css',
     url='https://github.com/wilhelmer/mkdocs-add-teaser.git',
