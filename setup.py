@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='mkdocs-add-teaser',
-    version='0.9.0',
+    version='0.9.1',
     description='An MkDocs plugin to customize the first paragraph of your pages, and to use it as the page\'s meta description.',
     long_description='',
     keywords='mkdocs css',
