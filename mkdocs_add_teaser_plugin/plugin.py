@@ -10,6 +10,10 @@ class AddTeaserPlugin(BasePlugin):
     )
 
     def on_page_content(self, html, page, config, files):
+        # Determine whether to enable the plugin
+        if page.meta and page.meta["hide"] and "teaser" in page.meta["hide"]:
+            return html
+
         # Find first paragraph on page
         first_paragraph = ""
         first_paragraph_text = ""

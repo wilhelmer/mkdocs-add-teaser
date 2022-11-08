@@ -31,7 +31,7 @@ Add the CSS class to your extra CSS file. See examples below.
 
 ### CSS Examples
 
-#### Use bold text
+#### Use Bold Text
 
 ```css
 .teaser {
@@ -39,7 +39,7 @@ Add the CSS class to your extra CSS file. See examples below.
 }
 ```
 
-#### Use larger font
+#### Use Larger Font
 
 ```css
 .teaser {
@@ -47,7 +47,7 @@ Add the CSS class to your extra CSS file. See examples below.
 }
 ```
 
-#### Use different color
+#### Use Different Color
 
 ```css
 .teaser {
@@ -55,7 +55,7 @@ Add the CSS class to your extra CSS file. See examples below.
 }
 ```
 
-#### Use all of the above
+#### Use All of the Above
 
 ```css
 .teaser {
@@ -70,11 +70,27 @@ Add the CSS class to your extra CSS file. See examples below.
 The following options are provided to configure the output:
 
 * `add_to_meta`: If set to `true` and your page doesn't contain a meta description, the teaser text will be used as the meta description. Defaults to `false`.
-* `teaser_class`: The CSS to be applied to the first paragraph of your pages. Defaults to `teaser`.
+* `teaser_class`: The CSS class to be applied to the first paragraph of your pages. Defaults to `teaser`.
 
-## How it works
+### Disabling the Plugin
 
-### HTML before processing
+The teaser plugin can be disabled on specific pages using the front matter `hide` property. The teaser text will still be shown, but no CSS class will be applied, and the meta description won't be changed.
+
+Add the following lines at the top of a Markdown file:
+
+```md
+---
+hide:
+  - teaser
+---
+
+# Document Title
+...
+```
+
+## How It Works
+
+### HTML before Processing
 
 This is the HTML that Markdown will produce:
 
@@ -83,7 +99,7 @@ This is the HTML that Markdown will produce:
 <p>First paragraph</p>
 ```
 
-### HTML after processing
+### HTML after Processing
 
 This is the HTML after this plugin has run:
 
